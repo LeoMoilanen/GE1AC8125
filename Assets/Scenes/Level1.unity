@@ -874,3 +874,4 @@ MonoBehaviour:
   attackPoint: {fileID: 1158916953}
   arrowPrefab: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
   bulletForce: 20
+  canShoot: 1
