@@ -7,7 +7,9 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public GameObject arrowPrefab;
 
-    public float bulletForce = 20f;
+    [SerializeField] private float bulletForce = 20f;
+    [SerializeField] private float fireRate = 0.3f;
+    [SerializeField] private string equippedWeapon = "Repeater crossbow";
     public bool canShoot = true;
 
     // Start is called before the first frame update
@@ -19,27 +21,46 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && canShoot)
+        if (Input.GetKeyDown("1"))
+        {
+            equippedWeapon = "Repeater crossbow";
+        }
+
+        if (Input.GetKeyDown("2"))
+        {
+            equippedWeapon = "Musket";
+        }
+
+        if (Input.GetMouseButton(0) && canShoot && equippedWeapon == "Repeater crossbow")
         {
             Shoot();
-            StartCoroutine(Firerate());
+            StartCoroutine(RepeaterCrossbowFirerate());
         }
+
+        if (Input.GetMouseButtonDown(0) && canShoot && equippedWeapon == "Musket")
+        {
+            Shoot();
+            StartCoroutine(RepeaterCrossbowFirerate());
+        }
+
     }
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
-        canShoot = false;
+        if (equippedWeapon == "Repeater crossbow")
+        {
+            GameObject bullet = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
+            canShoot = false;
+
+        }
         
     }
 
-    IEnumerator Firerate()
+    IEnumerator RepeaterCrossbowFirerate()
     {
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("Finished a Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }
 }
