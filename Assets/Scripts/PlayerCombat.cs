@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint;
     public GameObject arrowPrefab;
+    public GameObject bulletPrefab;
 
     [SerializeField] private float bulletForce = 20f;
     [SerializeField] private float fireRate = 0.3f;
@@ -23,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            equippedWeapon = "Repeater crossbow";
+            EquipRepeaterCrossbow();
         }
 
         if (Input.GetKeyDown("2"))
@@ -45,6 +46,12 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
+    private void EquipRepeaterCrossbow()
+    {
+        equippedWeapon = "Repeater crossbow";
+        fireRate = 0.3f;
+    }
+
     private void Shoot()
     {
         if (equippedWeapon == "Repeater crossbow")
@@ -53,9 +60,16 @@ public class PlayerCombat : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
             canShoot = false;
-
         }
-        
+
+        if (equippedWeapon == "Musket")
+        {
+            GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
+            canShoot = false;
+        }
+
     }
 
     IEnumerator RepeaterCrossbowFirerate()
