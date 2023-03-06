@@ -873,5 +873,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1158916953}
   arrowPrefab: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
+  bulletPrefab: {fileID: 2357485830727753657, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
   bulletForce: 20
+  fireRate: 0.3
+  equippedWeapon: Repeater crossbow
   canShoot: 1
+--- !u!1001 &8761464237374278524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078479514905162617, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357485830727753657, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
+      propertyPath: m_Name
+      value: Musket bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
