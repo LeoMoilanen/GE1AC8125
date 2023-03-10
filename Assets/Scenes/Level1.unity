@@ -536,7 +536,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5283019, g: 0.47072908, b: 0.28159487, a: 1}
+  m_Color: {r: 0.735849, g: 0.48580697, b: 0.12842648, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1211,6 +1211,6 @@ MonoBehaviour:
   arrowPrefab: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
   bulletPrefab: {fileID: 2357485830727753657, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
   bulletForce: 20
-  fireRate: 0.3
-  equippedWeapon: Repeater crossbow
+  shootDelay: 0.3
+  currentWeapon: Repeater crossbow
   canShoot: 1

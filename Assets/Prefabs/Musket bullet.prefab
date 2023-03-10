@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 333215554404626549}
   - component: {fileID: -294511234486012464}
   - component: {fileID: 6828549012049543050}
+  - component: {fileID: 2435273656363191353}
   m_Layer: 0
   m_Name: Musket bullet
   m_TagString: Untagged
@@ -123,3 +124,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2435273656363191353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357485830727753657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b92ba369966b314d8635c1769b550ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

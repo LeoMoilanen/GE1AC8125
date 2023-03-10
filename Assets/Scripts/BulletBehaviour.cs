@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowBehaviour : MonoBehaviour
+public class BulletBehaviour : MonoBehaviour
 {
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(gameObject);
     }
-
-
 }

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     public Transform attackPoint;
     public GameObject arrowPrefab;
     public GameObject bulletPrefab;
 
     [SerializeField] private float bulletForce = 20f;
-    [SerializeField] private float fireRate = 0.3f;
-    [SerializeField] private string equippedWeapon = "Repeater crossbow";
+    [SerializeField] private float shootDelay = 0.3f;
+    [SerializeField] private string currentWeapon = "Repeater crossbow";
     public bool canShoot = true;
 
     // Start is called before the first frame update
@@ -24,37 +24,43 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            EquipRepeaterCrossbow();
+            currentWeapon = "Repeater crossbow";
         }
 
         if (Input.GetKeyDown("2"))
         {
-            equippedWeapon = "Musket";
+            currentWeapon = "Musket";
         }
 
-        if (Input.GetMouseButton(0) && canShoot && equippedWeapon == "Repeater crossbow")
+        if (currentWeapon == "Repeater crossbow")
+        {
+            shootDelay = 0.3f;
+            bulletForce = 20f;
+        }
+
+        if (currentWeapon == "Musket")
+        {
+            shootDelay = 2.0f;
+            bulletForce = 60f;
+        }
+
+        if (Input.GetMouseButton(0) && canShoot && currentWeapon == "Repeater crossbow")
         {
             Shoot();
-            StartCoroutine(RepeaterCrossbowFirerate());
+            StartCoroutine(Firerate());
         }
 
-        if (Input.GetMouseButtonDown(0) && canShoot && equippedWeapon == "Musket")
+        if (Input.GetMouseButtonDown(0) && canShoot && currentWeapon == "Musket")
         {
             Shoot();
-            StartCoroutine(RepeaterCrossbowFirerate());
+            StartCoroutine(Firerate());
         }
 
-    }
-
-    private void EquipRepeaterCrossbow()
-    {
-        equippedWeapon = "Repeater crossbow";
-        fireRate = 0.3f;
     }
 
     private void Shoot()
     {
-        if (equippedWeapon == "Repeater crossbow")
+        if (currentWeapon == "Repeater crossbow")
         {
             GameObject bullet = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -62,7 +68,7 @@ public class PlayerCombat : MonoBehaviour
             canShoot = false;
         }
 
-        if (equippedWeapon == "Musket")
+        if (currentWeapon == "Musket")
         {
             GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -72,9 +78,9 @@ public class PlayerCombat : MonoBehaviour
 
     }
 
-    IEnumerator RepeaterCrossbowFirerate()
+    IEnumerator Firerate()
     {
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }
 }
