@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b92ba369966b314d8635c1769b550ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: arrow
+  projectileType: bullet
 --- !u!1 &9204869761889965672
 GameObject:
   m_ObjectHideFlags: 0
