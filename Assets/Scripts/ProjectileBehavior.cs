@@ -6,16 +6,24 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField] private string projectileType;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (projectileType == "bullet")
-        {
-            Destroy(gameObject);
-        }
+    [SerializeField] private float changeHealth;
 
-        if (projectileType == "arrow")
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
         {
-            Destroy(GetComponent<Rigidbody2D>());
+            HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
+            healthSystem.AddToCurrentHealth(changeHealth);
+            
+            if (projectileType == "bullet")
+            {
+                Destroy(gameObject);
+            }
+
+            if (projectileType == "arrow")
+            {
+                Destroy(GetComponent<Rigidbody2D>());
+            }
         }
     }
 }
