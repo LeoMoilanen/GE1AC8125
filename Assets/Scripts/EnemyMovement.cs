@@ -40,4 +40,14 @@ public class EnemyMovement : MonoBehaviour
     {
             enemyRigidbody.velocity = transform.up * speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
+            healthSystem.AddToCurrentHealth(-1);
+        }
+    }
+
 }
