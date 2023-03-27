@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthSystemForDummies : MonoBehaviour
 {
@@ -119,5 +120,7 @@ public class HealthSystemForDummies : MonoBehaviour
 
         OnIsAliveChanged.Invoke(IsAlive);
         OnCurrentHealthChanged.Invoke(new CurrentHealth(previousHealth, CurrentHealth, CurrentHealthPercentage));
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
