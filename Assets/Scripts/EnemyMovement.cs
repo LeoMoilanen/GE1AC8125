@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
-            healthSystem.Kill();
+            healthSystem.PlayerDead();
         }
     }
 

@@ -6,14 +6,14 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField] private string projectileType;
 
-    [SerializeField] private float changeHealth;
+    [SerializeField] private float damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Enemy"))
         {
             HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
-            healthSystem.AddToCurrentHealth(changeHealth);
+            healthSystem.DecreaseCurrentHealthBy(damage);
             
             if (projectileType == "bullet")
             {
