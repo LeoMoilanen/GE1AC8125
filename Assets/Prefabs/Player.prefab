@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: robot v2 _0
       objectReference: {fileID: 0}
+    - target: {fileID: 3235044431572143241, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
 --- !u!4 &7332963089031178341 stripped
