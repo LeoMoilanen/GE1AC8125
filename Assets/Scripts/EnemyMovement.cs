@@ -10,12 +10,18 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     private Rigidbody2D enemyRigidbody;
-    public GameObject player;
+    public Transform player;
     private Vector2 targetDirection;
 
     private void Awake()
     {
         enemyRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Player");
+        player = go.transform;
     }
 
     private void FixedUpdate()
@@ -42,12 +48,17 @@ public class EnemyMovement : MonoBehaviour
          enemyRigidbody.velocity = transform.up * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
             healthSystem.PlayerDead();
+        }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
         }
     }
 }
