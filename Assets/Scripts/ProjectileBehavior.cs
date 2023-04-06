@@ -14,16 +14,17 @@ public class ProjectileBehavior : MonoBehaviour
         {
             HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
             healthSystem.DecreaseCurrentHealthBy(damage);
-            
-            if (projectileType == "bullet")
-            {
-                Destroy(gameObject);
-            }
 
-            if (projectileType == "arrow")
-            {
-                Destroy(GetComponent<Rigidbody2D>());
-            }
+        }    
+        
+        if (projectileType == "bullet")
+        {
+            Destroy(gameObject);
+        }
+
+        if (projectileType == "arrow")
+        {
+            Destroy(GetComponent<Rigidbody2D>());
         }
     }
 }
