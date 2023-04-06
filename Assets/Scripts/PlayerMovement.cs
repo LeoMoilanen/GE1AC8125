@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// I made this script with the help of this tutorial: https://www.youtube.com/watch?v=sBmsqVwGd2E&ab_channel=PitiIT
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D playerRigidbody;
