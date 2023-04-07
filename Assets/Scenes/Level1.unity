@@ -1643,6 +1643,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7565998169636987964, guid: fd9420a2f154bb944a8d8d59437033e6, type: 3}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: crossbowPrefab
+      value: 
+      objectReference: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: shotgunCoolDown
       value: 4
       objectReference: {fileID: 0}
