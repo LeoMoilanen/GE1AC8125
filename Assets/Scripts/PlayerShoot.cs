@@ -6,17 +6,23 @@ public class PlayerShoot : MonoBehaviour
 {
     public Transform attackPoint;
     public GameObject arrowPrefab;
-    public GameObject bulletPrefab;
+    public GameObject shotgunPrefab;
 
-    [SerializeField] private float bulletForce = 20f;
-    [SerializeField] private float shootDelay = 0.3f;
-    [SerializeField] private string currentWeapon = "Repeater crossbow";
-    public bool canShoot = true;
+    private float bulletForce;
+    private float coolDown;
+    [SerializeField] private float crossbowCoolDown;
+    [SerializeField] private float crosswbowBulletForce;
+    [SerializeField] private float shotgunCoolDown;
+    [SerializeField] private float shotgunBulletForce;
+    [SerializeField] private string currentWeapon;
+
+    private bool crossBowReady = true;
+    private bool shotgunReady = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentWeapon = "Crossbow";
     }
 
     // Update is called once per frame
@@ -24,63 +30,50 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            currentWeapon = "Repeater crossbow";
+            currentWeapon = "Crossbow";
         }
 
         if (Input.GetKeyDown("2"))
         {
-            currentWeapon = "Musket";
+            currentWeapon = "Shotgun";
         }
 
-        if (currentWeapon == "Repeater crossbow")
-        {
-            shootDelay = 0.3f;
-            bulletForce = 20f;
-        }
-
-        if (currentWeapon == "Musket")
-        {
-            shootDelay = 2.0f;
-            bulletForce = 60f;
-        }
-
-        if (Input.GetMouseButton(0) && canShoot && currentWeapon == "Repeater crossbow")
+        if (Input.GetMouseButton(0))
         {
             Shoot();
-            StartCoroutine(Firerate());
         }
-
-        if (Input.GetMouseButtonDown(0) && canShoot && currentWeapon == "Musket")
-        {
-            Shoot();
-            StartCoroutine(Firerate());
-        }
-
     }
 
     private void Shoot()
     {
-        if (currentWeapon == "Repeater crossbow")
+        if (currentWeapon == "Crossbow" && crossBowReady)
         {
             GameObject bullet = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
-            canShoot = false;
+            rb.AddForce(attackPoint.up * crosswbowBulletForce, ForceMode2D.Impulse);
+            crossBowReady = false;
+            StartCoroutine(CrossbowReload());
         }
 
-        if (currentWeapon == "Musket")
+        if (currentWeapon == "Shotgun" && shotgunReady)
         {
-            GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
+            GameObject bullet = Instantiate(shotgunPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
-            canShoot = false;
+            rb.AddForce(attackPoint.up * shotgunBulletForce, ForceMode2D.Impulse);
+            shotgunReady = false;
+            StartCoroutine(ShotgunReload());
         }
-
     }
 
-    IEnumerator Firerate()
+    IEnumerator CrossbowReload()
     {
-        yield return new WaitForSeconds(shootDelay);
-        canShoot = true;
+        yield return new WaitForSeconds(crossbowCoolDown);
+        crossBowReady = true;
+    }
+
+    IEnumerator ShotgunReload()
+    {
+        yield return new WaitForSeconds(shotgunCoolDown);
+        shotgunReady = true;
     }
 }

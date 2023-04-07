@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    [SerializeField] private string projectileType;
+    [SerializeField] private bool canPierceEnemies;
 
     [SerializeField] private float damage;
 
@@ -15,16 +15,16 @@ public class ProjectileBehavior : MonoBehaviour
             HealthSystemForDummies healthSystem = collision.gameObject.GetComponent<HealthSystemForDummies>();
             healthSystem.DecreaseCurrentHealthBy(damage);
 
-        }    
-        
-        if (projectileType == "bullet")
-        {
-            Destroy(gameObject);
+            if (!canPierceEnemies)
+            {
+                Destroy(gameObject);
+            }
+
         }
 
-        if (projectileType == "arrow")
+        if (collision.transform.CompareTag("Wall"))
         {
-            Destroy(GetComponent<Rigidbody2D>());
+            Destroy(gameObject);
         }
     }
 }

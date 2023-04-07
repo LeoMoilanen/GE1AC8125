@@ -33,6 +33,11 @@ public class WaveSpawner : MonoBehaviour
             currentWaveNumber++;
             canSpawn = true;
         }
+
+        //if (totalEnemies.Length = 1)
+        //{
+
+        //}
     }
 
     private void SpawnNextWave()
