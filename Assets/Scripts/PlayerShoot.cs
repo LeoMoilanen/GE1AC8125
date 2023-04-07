@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public Transform attackPoint;
-    public GameObject arrowPrefab;
+    public GameObject crossbowPrefab;
     public GameObject shotgunPrefab;
 
     private float bulletForce;
@@ -48,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (currentWeapon == "Crossbow" && crossBowReady)
         {
-            GameObject bullet = Instantiate(arrowPrefab, attackPoint.position, attackPoint.rotation);
+            GameObject bullet = Instantiate(crossbowPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * crosswbowBulletForce, ForceMode2D.Impulse);
             crossBowReady = false;
