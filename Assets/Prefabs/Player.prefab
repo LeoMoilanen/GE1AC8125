@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4642665910161731935}
   - component: {fileID: 4642665910161731923}
   - component: {fileID: 4642665910161731922}
+  - component: {fileID: 2715578588419800308}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -132,12 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 4642665909905794546}
-  arrowPrefab: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
-  bulletPrefab: {fileID: 2357485830727753657, guid: 058755505440a8947b53cbe0d0fe20b2, type: 3}
-  bulletForce: 20
-  shootDelay: 0.3
+  crossbowPrefab: {fileID: 0}
+  shotgunPrefab: {fileID: 0}
+  crossbowCoolDown: 0
+  crosswbowBulletForce: 0
+  shotgunCoolDown: 0
+  shotgunBulletForce: 0
   currentWeapon: Repeater crossbow
-  canShoot: 1
 --- !u!114 &4642665910161731922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,68 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   HealthBarPrefabToSpawn: {fileID: 8459761256327841958, guid: 8d33425d7a2a5394ba6dc22e7de6306c, type: 3}
+--- !u!108 &2715578588419800308
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642665910161731928}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.5283019, g: 0.059121355, b: 0.032395884, a: 1}
+  m_Intensity: 6
+  m_Range: 20
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &4642665911692169059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,6 +293,10 @@ PrefabInstance:
       value: robot v2 _0
       objectReference: {fileID: 0}
     - target: {fileID: 3235044431572143241, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235044431572143241, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -236,7 +304,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3235044431572143241, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a134047cfa8442ca8f8a9576f089aeb, type: 3}
 --- !u!4 &7332963089031178341 stripped
 Transform:

@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b92ba369966b314d8635c1769b550ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: bullet
+  canPierceEnemies: 0
   damage: 1
 --- !u!70 &5663058895981115501
 CapsuleCollider2D:

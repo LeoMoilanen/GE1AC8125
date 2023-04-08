@@ -70,9 +70,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   serializedVersion: 2
-  m_Radius: 1.36
+  m_Radius: 1.5
 --- !u!114 &2855462820120632589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAlive: 1
-  CurrentHealth: 10
-  MaximumHealth: 10
+  CurrentHealth: 3
+  MaximumHealth: 3
   HasAnimationWhenHealthChanges: 1
   AnimationDuration: 0.1
   OnCurrentHealthChanged:
@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Savager Boss_0
       objectReference: {fileID: 0}
+    - target: {fileID: 1839696969718468068, guid: 2e445ade919014ccf8c5615d5652577a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1839696969718468071, guid: 2e445ade919014ccf8c5615d5652577a, type: 3}
       propertyPath: m_RootOrder
       value: 0
