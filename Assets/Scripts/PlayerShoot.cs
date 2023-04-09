@@ -12,6 +12,9 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject bubblePrefab;
 
     [SerializeField] private Text textCrossbowCooldown;
+    [SerializeField] private Text textShotgunCooldown;
+    [SerializeField] private Text textLaserCooldown;
+    [SerializeField] private Text textBubbleCooldown;
 
     [SerializeField] private string currentWeapon;
     [SerializeField] private float crossbowCoolDown;
@@ -22,7 +25,10 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float laserBulletForce;
     [SerializeField] private float bubbleCoolDown;
 
-    [SerializeField] private float crossbowCooldownTimer;
+    private float crossbowCooldownTimer;
+    private float shotgunCooldownTimer;
+    private float laserCooldownTimer;
+    private float bubbleCooldownTimer;
 
     private bool crossBowReady = true;
     private bool shotgunReady = true;
@@ -33,6 +39,9 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         textCrossbowCooldown.gameObject.SetActive(false);
+        textShotgunCooldown.gameObject.SetActive(false);
+        textLaserCooldown.gameObject.SetActive(false);
+        textBubbleCooldown.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -62,6 +71,21 @@ public class PlayerShoot : MonoBehaviour
         {
             CrossbowReload();
         }
+
+        if (!shotgunReady)
+        {
+            ShotgunReload();
+        }
+
+        if (!laserReady)
+        {
+            LaserReload();
+        }
+
+        if (!bubbleReady)
+        {
+            BubbleReload();
+        }
     }
 
     private void ShootCrossBow()
@@ -83,8 +107,8 @@ public class PlayerShoot : MonoBehaviour
             GameObject bullet = Instantiate(shotgunPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * shotgunBulletForce, ForceMode2D.Impulse);
+            shotgunCooldownTimer = shotgunCoolDown;
             shotgunReady = false;
-            StartCoroutine(ShotgunReload());
         }
     }
 
@@ -95,8 +119,8 @@ public class PlayerShoot : MonoBehaviour
             GameObject bullet = Instantiate(laserPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * laserBulletForce, ForceMode2D.Impulse);
+            laserCooldownTimer = laserCoolDown;
             laserReady = false;
-            StartCoroutine(LaserReload());
         }
     }
 
@@ -106,14 +130,13 @@ public class PlayerShoot : MonoBehaviour
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
+            bubbleCooldownTimer = bubbleCoolDown;
             bubbleReady = false;
-            StartCoroutine(BubbleReload());
         }
     }
 
     private void CrossbowReload()
     {
-        Debug.Log("Crossbow is reloading");
         textCrossbowCooldown.gameObject.SetActive(true);
         crossbowCooldownTimer -= Time.deltaTime;
         
@@ -128,21 +151,51 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    IEnumerator ShotgunReload()
+    private void ShotgunReload()
     {
-        yield return new WaitForSeconds(shotgunCoolDown);
-        shotgunReady = true;
+        textShotgunCooldown.gameObject.SetActive(true);
+        shotgunCooldownTimer -= Time.deltaTime;
+
+        if (shotgunCooldownTimer <= 0.0f)
+        {
+            shotgunReady = true;
+            textShotgunCooldown.gameObject.SetActive(false);
+        }
+        else
+        {
+            textShotgunCooldown.text = shotgunCooldownTimer.ToString();
+        }
     }
 
-    IEnumerator LaserReload()
+    private void LaserReload()
     {
-        yield return new WaitForSeconds(laserCoolDown);
-        laserReady = true;
+        textLaserCooldown.gameObject.SetActive(true);
+        laserCooldownTimer -= Time.deltaTime;
+
+        if (laserCooldownTimer <= 0.0f)
+        {
+            laserReady = true;
+            textLaserCooldown.gameObject.SetActive(false);
+        }
+        else
+        {
+            textLaserCooldown.text = laserCooldownTimer.ToString();
+        }
     }
 
-    IEnumerator BubbleReload()
+    private void BubbleReload()
     {
-        yield return new WaitForSeconds(bubbleCoolDown);
-        bubbleReady = true;
+        textBubbleCooldown.gameObject.SetActive(true);
+        bubbleCooldownTimer -= Time.deltaTime;
+
+        if (bubbleCooldownTimer <= 0.0f)
+        {
+            bubbleReady = true;
+            textBubbleCooldown.gameObject.SetActive(false);
+        }
+        else
+        {
+            textBubbleCooldown.text = bubbleCooldownTimer.ToString();
+        }
     }
 }
