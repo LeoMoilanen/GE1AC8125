@@ -134,11 +134,14 @@ MonoBehaviour:
   attackPoint: {fileID: 4642665909905794546}
   crossbowPrefab: {fileID: 0}
   shotgunPrefab: {fileID: 0}
+  laserPrefab: {fileID: 0}
+  currentWeapon: Repeater crossbow
   crossbowCoolDown: 0
   crosswbowBulletForce: 0
   shotgunCoolDown: 0
   shotgunBulletForce: 0
-  currentWeapon: Repeater crossbow
+  laserCoolDown: 0
+  laserBulletForce: 0
 --- !u!114 &4642665910161731922
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,4 +61,20 @@ public class EnemyMovement : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Chrono bubble"))
+        {
+            speed *= 0.5f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Chrono bubble"))
+        {
+            speed *= 2;
+        }
+    }
 }

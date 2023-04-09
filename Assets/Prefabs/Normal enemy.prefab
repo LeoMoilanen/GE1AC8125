@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAlive: 1
   CurrentHealth: 2
-  MaximumHealth: 4
+  MaximumHealth: 2
   HasAnimationWhenHealthChanges: 1
   AnimationDuration: 0.1
   OnCurrentHealthChanged:

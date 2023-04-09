@@ -7,17 +7,22 @@ public class PlayerShoot : MonoBehaviour
     public Transform attackPoint;
     public GameObject crossbowPrefab;
     public GameObject shotgunPrefab;
+    public GameObject laserPrefab;
+    public GameObject bubblePrefab;
 
-    private float bulletForce;
-    private float coolDown;
+    [SerializeField] private string currentWeapon;
     [SerializeField] private float crossbowCoolDown;
     [SerializeField] private float crosswbowBulletForce;
     [SerializeField] private float shotgunCoolDown;
     [SerializeField] private float shotgunBulletForce;
-    [SerializeField] private string currentWeapon;
+    [SerializeField] private float laserCoolDown;
+    [SerializeField] private float laserBulletForce;
+    [SerializeField] private float bubbleCoolDown;
 
     private bool crossBowReady = true;
     private bool shotgunReady = true;
+    private bool laserReady = true;
+    private bool bubbleReady = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,16 @@ public class PlayerShoot : MonoBehaviour
         if (Input.GetKeyDown("2"))
         {
             currentWeapon = "Shotgun";
+        }
+
+        if (Input.GetKeyDown("3"))
+        {
+            currentWeapon = "Laser";
+        }
+
+        if (Input.GetKeyDown("4"))
+        {
+            currentWeapon = "Bubble";
         }
 
         if (Input.GetMouseButton(0))
@@ -63,6 +78,23 @@ public class PlayerShoot : MonoBehaviour
             shotgunReady = false;
             StartCoroutine(ShotgunReload());
         }
+
+        if (currentWeapon == "Laser" && laserReady)
+        {
+            GameObject bullet = Instantiate(laserPrefab, attackPoint.position, attackPoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(attackPoint.up * laserBulletForce, ForceMode2D.Impulse);
+            laserReady = false;
+            StartCoroutine(LaserReload());
+        }
+
+        if (currentWeapon == "Bubble" && bubbleReady)
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
+            bubbleReady = false;
+            StartCoroutine(BubbleReload());
+        }
     }
 
     IEnumerator CrossbowReload()
@@ -75,5 +107,17 @@ public class PlayerShoot : MonoBehaviour
     {
         yield return new WaitForSeconds(shotgunCoolDown);
         shotgunReady = true;
+    }
+
+    IEnumerator LaserReload()
+    {
+        yield return new WaitForSeconds(laserCoolDown);
+        laserReady = true;
+    }
+
+    IEnumerator BubbleReload()
+    {
+        yield return new WaitForSeconds(bubbleCoolDown);
+        bubbleReady = true;
     }
 }

@@ -439,6 +439,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun graphics
       objectReference: {fileID: 0}
+    - target: {fileID: 204459346454657411, guid: 070664d495e1dce46861c21f1c81608b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204459346454657412, guid: 070664d495e1dce46861c21f1c81608b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 204459346454657413, guid: 070664d495e1dce46861c21f1c81608b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 204459346454657414, guid: 070664d495e1dce46861c21f1c81608b, type: 3}
       propertyPath: m_RootOrder
       value: 0

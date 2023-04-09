@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - Chrono bubble
   layers:
   - Default
   - TransparentFX

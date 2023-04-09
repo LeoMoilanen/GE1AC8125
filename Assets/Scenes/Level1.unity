@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 991982433}
   - component: {fileID: 991982432}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 1379783966}
   - component: {fileID: 1379783965}
   m_Layer: 0
-  m_Name: Ground (1)
+  m_Name: Background (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1920,17 +1920,41 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: bublePrefab
+      value: 
+      objectReference: {fileID: 6684179064906389395, guid: 1dab06943e0afdb40b0882e4de065281, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 4970936090175265234, guid: 7c58d934eece8a14cb62bfb47f13bc83, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: bubblePrefab
+      value: 
+      objectReference: {fileID: 6684179064906389395, guid: 1dab06943e0afdb40b0882e4de065281, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 7565998169636987964, guid: fd9420a2f154bb944a8d8d59437033e6, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: bubleCoolDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: currentWeapon
       value: Crossbow
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: laserCoolDown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: shotgunPrefab
       value: 
       objectReference: {fileID: 7565998169636987964, guid: fd9420a2f154bb944a8d8d59437033e6, type: 3}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: bubbleCoolDown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: crossbowPrefab
       value: 
@@ -1942,6 +1966,10 @@ PrefabInstance:
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: crossbowCoolDown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
+      propertyPath: laserBulletForce
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: shotgunBulletForce
@@ -1961,11 +1989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731932, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731932, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731932, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: m_LocalPosition.z
