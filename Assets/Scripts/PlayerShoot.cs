@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public Transform attackPoint;
-    public GameObject crossbowPrefab;
-    public GameObject shotgunPrefab;
-    public GameObject laserPrefab;
-    public GameObject bubblePrefab;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private GameObject crossbowPrefab;
+    [SerializeField] private GameObject shotgunPrefab;
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private GameObject bubblePrefab;
+
+    [SerializeField] private Text textCrossbowCooldown;
 
     [SerializeField] private string currentWeapon;
     [SerializeField] private float crossbowCoolDown;
@@ -19,6 +22,8 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private float laserBulletForce;
     [SerializeField] private float bubbleCoolDown;
 
+    [SerializeField] private float crossbowCooldownTimer;
+
     private bool crossBowReady = true;
     private bool shotgunReady = true;
     private bool laserReady = true;
@@ -27,50 +32,53 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentWeapon = "Crossbow";
+        textCrossbowCooldown.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButton(0))
+        {
+            ShootCrossBow();
+        }
+
         if (Input.GetKeyDown("1"))
         {
-            currentWeapon = "Crossbow";
+            ShootShotgun();
         }
 
         if (Input.GetKeyDown("2"))
         {
-            currentWeapon = "Shotgun";
+            ShootLaser();
         }
 
         if (Input.GetKeyDown("3"))
         {
-            currentWeapon = "Laser";
+            ShootBubble();
         }
 
-        if (Input.GetKeyDown("4"))
+        if (!crossBowReady)
         {
-            currentWeapon = "Bubble";
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            Shoot();
+            CrossbowReload();
         }
     }
 
-    private void Shoot()
+    private void ShootCrossBow()
     {
-        if (currentWeapon == "Crossbow" && crossBowReady)
+        if (crossBowReady)
         {
             GameObject bullet = Instantiate(crossbowPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * crosswbowBulletForce, ForceMode2D.Impulse);
+            crossbowCooldownTimer = crossbowCoolDown;
             crossBowReady = false;
-            StartCoroutine(CrossbowReload());
         }
+    }
 
-        if (currentWeapon == "Shotgun" && shotgunReady)
+    private void ShootShotgun()
+    {
+        if (shotgunReady)
         {
             GameObject bullet = Instantiate(shotgunPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -78,8 +86,11 @@ public class PlayerShoot : MonoBehaviour
             shotgunReady = false;
             StartCoroutine(ShotgunReload());
         }
+    }
 
-        if (currentWeapon == "Laser" && laserReady)
+    private void ShootLaser()
+    {
+        if (laserReady)
         {
             GameObject bullet = Instantiate(laserPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -87,8 +98,11 @@ public class PlayerShoot : MonoBehaviour
             laserReady = false;
             StartCoroutine(LaserReload());
         }
+    }
 
-        if (currentWeapon == "Bubble" && bubbleReady)
+    private void ShootBubble()
+    {
+        if (bubbleReady)
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
@@ -97,10 +111,21 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    IEnumerator CrossbowReload()
+    private void CrossbowReload()
     {
-        yield return new WaitForSeconds(crossbowCoolDown);
-        crossBowReady = true;
+        Debug.Log("Crossbow is reloading");
+        textCrossbowCooldown.gameObject.SetActive(true);
+        crossbowCooldownTimer -= Time.deltaTime;
+        
+        if (crossbowCooldownTimer <= 0.0f)
+        {
+            crossBowReady = true;
+            textCrossbowCooldown.gameObject.SetActive(false);
+        }
+        else
+        {
+            textCrossbowCooldown.text = crossbowCooldownTimer.ToString();
+        }
     }
 
     IEnumerator ShotgunReload()
