@@ -6,8 +6,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-
+    [SerializeField] private float speedValue;
     [SerializeField] private float rotationSpeed;
+    private bool isStopped;
 
     private Rigidbody2D enemyRigidbody;
     public Transform player;
@@ -45,7 +46,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void SetVelocity()
     {
-         enemyRigidbody.velocity = transform.up * speed;
+        if (!isStopped)
+        {
+            speedValue = speed;
+        }
+        else
+        {
+            speedValue = -5;
+        }
+        enemyRigidbody.velocity = transform.up * speedValue;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,6 +73,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.CompareTag("Bullet"))
+        {
+            isStopped = true;
+            StartCoroutine(StopEffectTime());
+        }
+
         if (collision.transform.CompareTag("Chrono bubble"))
         {
             speed *= 0.5f;
@@ -76,5 +91,11 @@ public class EnemyMovement : MonoBehaviour
         {
             speed *= 2;
         }
+    }
+
+    IEnumerator StopEffectTime()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isStopped = false;
     }
 }

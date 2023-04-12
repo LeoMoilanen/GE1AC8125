@@ -19,7 +19,6 @@ public class ProjectileBehavior : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
         }
 
         if (collision.transform.CompareTag("Wall"))
