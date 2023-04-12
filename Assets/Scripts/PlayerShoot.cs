@@ -52,17 +52,17 @@ public class PlayerShoot : MonoBehaviour
             ShootCrossBow();
         }
 
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKeyDown("e"))
         {
             ShootShotgun();
         }
 
-        if (Input.GetKeyDown("2"))
+        if (Input.GetKeyDown("r"))
         {
             ShootLaser();
         }
 
-        if (Input.GetKeyDown("3"))
+        if (Input.GetKeyDown("f"))
         {
             ShootBubble();
         }
