@@ -3366,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 7565998169636987964, guid: fd9420a2f154bb944a8d8d59437033e6, type: 3}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: bubbleCoolDown
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: crossbowPrefab
@@ -3374,15 +3374,15 @@ PrefabInstance:
       objectReference: {fileID: 2073982015921046367, guid: b598130a72a79e248952f302bc24dbde, type: 3}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: shotgunCoolDown
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: crossbowCoolDown
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: laserBulletForce
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: textLaserCooldown
@@ -3390,7 +3390,7 @@ PrefabInstance:
       objectReference: {fileID: 502947067}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: shotgunBulletForce
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: textBubbleCooldown
@@ -3406,7 +3406,7 @@ PrefabInstance:
       objectReference: {fileID: 226172993}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: crosswbowBulletForce
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4642665910161731923, guid: cfecb839c9759fa439afceb35569a745, type: 3}
       propertyPath: textCrossbowCooldown

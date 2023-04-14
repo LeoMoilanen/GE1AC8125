@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1131983989917997377}
   - component: {fileID: 5061014967880030473}
   - component: {fileID: 3147645608781478750}
+  - component: {fileID: 6916620128470245682}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Bullet
@@ -77,7 +78,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4970936090175265234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -86,6 +87,56 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.78}
   serializedVersion: 2
   m_Radius: 0.31
+--- !u!68 &6916620128470245682
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4970936090175265234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.027150597, y: -1.2609317}
+  - {x: -0.11702915, y: -1.2354391}
+  - {x: -0.22851792, y: -1.1575544}
+  - {x: -0.15124628, y: -0.9618753}
+  - {x: -0.14438343, y: -0.7638732}
+  - {x: -0.28755823, y: -0.686449}
+  - {x: -0.3923057, y: -0.5872968}
+  - {x: -0.14701825, y: -0.43997726}
+  - {x: -0.18081316, y: -0.123325005}
+  - {x: -0.48923498, y: 0.1754789}
+  - {x: -0.2314708, y: 0.3785518}
+  - {x: -0.3030882, y: 0.74607944}
+  - {x: -0.2855999, y: 0.9451528}
+  - {x: -0.34088898, y: 1.0949718}
+  - {x: -0.043880127, y: 1.2322742}
+  - {x: 0.3587728, y: 1.128689}
+  - {x: 0.33098125, y: 0.99576825}
+  - {x: 0.3114896, y: 0.71398765}
+  - {x: 0.22406396, y: 0.3893688}
+  - {x: 0.45712286, y: 0.20920116}
+  - {x: 0.40041894, y: 0.016048681}
+  - {x: 0.12654035, y: -0.09225626}
+  - {x: 0.1238175, y: -0.43225715}
+  - {x: 0.3531627, y: -0.527263}
+  - {x: 0.30388665, y: -0.6913926}
+  - {x: 0.1020616, y: -0.7751731}
+  - {x: 0.073310696, y: -0.9430832}
+  - {x: 0.12341046, y: -1.0853877}
+  - {x: 0.10911286, y: -1.1010022}
+  - {x: 0.019986123, y: -1.2824252}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &4071959373985344682
 PrefabInstance:
   m_ObjectHideFlags: 0

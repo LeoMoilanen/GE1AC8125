@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6029978717016469973}
   - component: {fileID: 6280107839892938333}
   m_Layer: 0
-  m_Name: Chrono bubble
+  m_Name: Chrono Bubble
   m_TagString: Chrono bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1114d0c6d43eea49926beada49b8d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleDuration: 3
+  bubbleDuration: 5
 --- !u!1001 &2618178976924346525
 PrefabInstance:
   m_ObjectHideFlags: 0
