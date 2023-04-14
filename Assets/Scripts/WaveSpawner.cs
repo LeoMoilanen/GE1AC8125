@@ -17,18 +17,18 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     public Transform[] spawnPoints;
 
-    [SerializeField] private Wave currentWave;
+    private Wave currentWave;
     [SerializeField] private int currentWaveNumber;
     private float nextSpawnTime;
 
     private bool canSpawn = true;
     public bool gameWon;
-
     private int wavesKilled;
+    [SerializeField] private GameObject victoryText;
 
     private void Start()
     {
-        Debug.Log("maximum wave length: " + waves.Length);
+        victoryText.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -46,6 +46,11 @@ public class WaveSpawner : MonoBehaviour
         {
             Debug.Log("All enemies killed");
             gameWon = true;
+        }
+
+        if (gameWon)
+        {
+            victoryText.gameObject.SetActive(true);
         }
     }
 

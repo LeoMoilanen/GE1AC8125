@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChangeScene : MonoBehaviour
+public class MainMenuButtonController : MonoBehaviour
 {
     [SerializeField] private Button startGameButton;
 
@@ -12,10 +12,10 @@ public class ChangeScene : MonoBehaviour
     void Start()
     {
         Button startGame = startGameButton.GetComponent<Button>();
-        startGame.onClick.AddListener(ChangeSceneOnClick);
+        startGame.onClick.AddListener(LoadGameSceneOnClick);
     }
 
-    private void ChangeSceneOnClick()
+    private void LoadGameSceneOnClick()
     {
         SceneManager.LoadScene(1);
     }
