@@ -6,17 +6,51 @@ using UnityEngine.UI;
 
 public class MainMenuButtonController : MonoBehaviour
 {
-    [SerializeField] private Button startGameButton;
+    [SerializeField] private GameObject mainMenuButtons;
+    [SerializeField] private GameObject storyMenuButtons;
+    [SerializeField] private GameObject story1;
+    [SerializeField] private GameObject story2;
+    [SerializeField] private GameObject story3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Button startGame = startGameButton.GetComponent<Button>();
-        startGame.onClick.AddListener(LoadGameSceneOnClick);
-    }
-
-    private void LoadGameSceneOnClick()
+    public void LoadGameScene()
     {
         SceneManager.LoadScene(1);
     }
+
+    public void OpenStoryMenu()
+    {
+        mainMenuButtons.gameObject.SetActive(false);
+        storyMenuButtons.gameObject.SetActive(true);
+    }
+
+    public void CloseStoryMenu()
+    {
+        mainMenuButtons.gameObject.SetActive(true);
+        storyMenuButtons.gameObject.SetActive(false);
+        story1.gameObject.SetActive(false);
+        story2.gameObject.SetActive(false);
+        story3.gameObject.SetActive(false);
+    }
+
+    public void OpenStory1()
+    {
+        story1.gameObject.SetActive(true);
+        story2.gameObject.SetActive(false);
+        story3.gameObject.SetActive(false);
+    }
+
+    public void OpenStory2()
+    {
+        story1.gameObject.SetActive(false);
+        story2.gameObject.SetActive(true);
+        story3.gameObject.SetActive(false);
+    }
+
+    public void OpenStory3()
+    {
+        story1.gameObject.SetActive(false);
+        story2.gameObject.SetActive(false);
+        story3.gameObject.SetActive(true);
+    }
+
 }
