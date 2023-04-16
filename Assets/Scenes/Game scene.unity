@@ -1837,7 +1837,7 @@ GameObject:
   - component: {fileID: 1274241004}
   - component: {fileID: 1274241003}
   m_Layer: 0
-  m_Name: Wave spawner
+  m_Name: Wave spawner controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
