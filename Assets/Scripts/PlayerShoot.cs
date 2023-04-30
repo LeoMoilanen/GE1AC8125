@@ -59,12 +59,12 @@ public class PlayerShoot : MonoBehaviour
             ShootShotgun();
         }
 
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("q"))
         {
             ShootLaser();
         }
 
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ShootBubble();
         }

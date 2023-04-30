@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 [System.Serializable]
 
 // I made this script with the help of this tutorial: https://www.youtube.com/watch?v=pKN8jVnSKyM&ab_channel=ChronoABI
@@ -24,15 +25,26 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = true;
     public bool gameWon;
     private int wavesKilled;
+    [SerializeField] private GameObject victoryPicture;
     [SerializeField] private GameObject victoryText;
+    [SerializeField] private GameObject wavesText;
+
+    [SerializeField] private GameObject battleMusic;
+    [SerializeField] private GameObject victoryMusic;
+
+    [SerializeField] private Text wavesLeftText;
+    [SerializeField] private int wavesLeft;
+
 
     private void Start()
     {
-        victoryText.gameObject.SetActive(false);
+        victoryPicture.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        wavesLeftText.text = "Waves left " + wavesLeft.ToString();
+
         currentWave = waves[currentWaveNumber];
         SpawnWave();
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -50,7 +62,11 @@ public class WaveSpawner : MonoBehaviour
 
         if (gameWon)
         {
+            victoryPicture.gameObject.SetActive(true);
+            battleMusic.gameObject.SetActive(false);
+            victoryMusic.gameObject.SetActive(true);
             victoryText.gameObject.SetActive(true);
+            wavesText.gameObject.SetActive(false);
         }
     }
 
@@ -68,6 +84,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 canSpawn = false;
                 wavesKilled += 1;
+                wavesLeft -= 1;
             }
         }
     }
