@@ -2184,13 +2184,13 @@ MonoBehaviour:
   - {fileID: 10957418}
   currentWaveNumber: 0
   gameWon: 0
+  wavesLeft: 3
   victoryPicture: {fileID: 403490383}
   victoryText: {fileID: 1588611782}
   wavesText: {fileID: 291926860}
   battleMusic: {fileID: 737237689}
   victoryMusic: {fileID: 229823536}
   wavesLeftText: {fileID: 291926862}
-  wavesLeft: 3
 --- !u!4 &1274241004
 Transform:
   m_ObjectHideFlags: 0

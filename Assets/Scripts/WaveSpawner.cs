@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
 
     private bool canSpawn = true;
     public bool gameWon;
-    private int wavesKilled;
+    [SerializeField] private int wavesLeft;
     [SerializeField] private GameObject victoryPicture;
     [SerializeField] private GameObject victoryText;
     [SerializeField] private GameObject wavesText;
@@ -33,7 +33,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject victoryMusic;
 
     [SerializeField] private Text wavesLeftText;
-    [SerializeField] private int wavesLeft;
 
 
     private void Start()
@@ -48,13 +47,19 @@ public class WaveSpawner : MonoBehaviour
         currentWave = waves[currentWaveNumber];
         SpawnWave();
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0 && !canSpawn && currentWaveNumber+1 != waves.Length)
+        if (totalEnemies.Length == 0 && !canSpawn && !gameWon)
         {
-            currentWaveNumber++;
-            canSpawn = true;
+            wavesLeft -= 1;
+
+            if (currentWaveNumber + 1 != waves.Length)
+            {
+                currentWaveNumber++;
+                canSpawn = true;
+            }
+            
         }
 
-        if (totalEnemies.Length == 0 && wavesKilled == 3)
+        if (totalEnemies.Length == 0 && wavesLeft == 0)
         {
             Debug.Log("All enemies killed");
             gameWon = true;
@@ -83,8 +88,7 @@ public class WaveSpawner : MonoBehaviour
             if (currentWave.numberOfEnemies == 0)
             {
                 canSpawn = false;
-                wavesKilled += 1;
-                wavesLeft -= 1;
+                
             }
         }
     }
