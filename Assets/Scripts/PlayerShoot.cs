@@ -7,6 +7,10 @@ using UnityEngine.UI;
 // I made the cooldown part with the help of this tutorial: https://www.youtube.com/watch?v=1fBKVWie8ew&ab_channel=DestinedToLearn
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField] private AudioSource boltSFX;
+    [SerializeField] private AudioSource laserSFX;
+    [SerializeField] private AudioSource bubbleSFX;
+
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject crossbowPrefab;
     [SerializeField] private GameObject shotgunPrefab;
@@ -94,6 +98,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (crossBowReady)
         {
+            boltSFX.Play();
             GameObject bullet = Instantiate(crossbowPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * crosswbowBulletForce, ForceMode2D.Impulse);
@@ -118,6 +123,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (laserReady)
         {
+            laserSFX.Play();
             GameObject bullet = Instantiate(laserPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * laserBulletForce, ForceMode2D.Impulse);
@@ -130,6 +136,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (bubbleReady)
         {
+            bubbleSFX.Play();
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
             bubbleCooldownTimer = bubbleCoolDown;
