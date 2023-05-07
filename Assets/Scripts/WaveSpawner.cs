@@ -25,6 +25,8 @@ public class WaveSpawner : MonoBehaviour
     private bool canSpawn = true;
     public bool gameWon;
     [SerializeField] private int wavesLeft;
+
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject victoryPicture;
     [SerializeField] private GameObject victoryText;
     [SerializeField] private GameObject wavesText;
@@ -67,6 +69,7 @@ public class WaveSpawner : MonoBehaviour
 
         if (gameWon)
         {
+            player.gameObject.SetActive(false);
             victoryPicture.gameObject.SetActive(true);
             battleMusic.gameObject.SetActive(false);
             victoryMusic.gameObject.SetActive(true);

@@ -1918,6 +1918,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937660628}
   m_CullTransparentMesh: 1
+--- !u!1 &982620852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6330731160389897499, guid: f0ef155ac0a3e3d40b5b51e3505533a6, type: 3}
+  m_PrefabInstance: {fileID: 6330731159497716456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097924359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2190,7 @@ MonoBehaviour:
   currentWaveNumber: 0
   gameWon: 0
   wavesLeft: 3
+  player: {fileID: 982620852}
   victoryPicture: {fileID: 403490383}
   victoryText: {fileID: 1588611782}
   wavesText: {fileID: 291926860}
