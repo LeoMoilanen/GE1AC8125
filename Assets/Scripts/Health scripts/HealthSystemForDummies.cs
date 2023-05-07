@@ -57,6 +57,6 @@ public class HealthSystemForDummies : MonoBehaviour
         OnIsAliveChanged.Invoke(IsAlive);
         OnCurrentHealthChanged.Invoke(new CurrentHealth(previousHealth, CurrentHealth, CurrentHealthPercentage));
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

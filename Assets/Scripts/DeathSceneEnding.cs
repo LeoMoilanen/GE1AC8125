@@ -14,6 +14,6 @@ public class DeathSceneEnding : MonoBehaviour
     IEnumerator DelayLoadLevel()
     {
         yield return new WaitForSeconds(6);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

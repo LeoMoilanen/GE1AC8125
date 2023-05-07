@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private AudioSource boltSFX;
+    [SerializeField] private AudioSource waveSFX;
     [SerializeField] private AudioSource laserSFX;
     [SerializeField] private AudioSource bubbleSFX;
 
@@ -111,6 +112,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (shotgunReady)
         {
+            waveSFX.Play();
             GameObject bullet = Instantiate(shotgunPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * shotgunBulletForce, ForceMode2D.Impulse);

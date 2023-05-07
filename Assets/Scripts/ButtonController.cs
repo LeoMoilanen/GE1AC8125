@@ -7,7 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     public void LoadMainMenuSceneOnClick()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void RestartSceneOnClick()

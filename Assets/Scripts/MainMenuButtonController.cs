@@ -17,7 +17,7 @@ public class MainMenuButtonController : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OpenStoryMenu()
@@ -37,6 +37,8 @@ public class MainMenuButtonController : MonoBehaviour
         story1.gameObject.SetActive(false);
         story2.gameObject.SetActive(false);
         story3.gameObject.SetActive(false);
+        story4.gameObject.SetActive(false);
+        story5.gameObject.SetActive(false);
     }
 
     public void OpenStory1()
